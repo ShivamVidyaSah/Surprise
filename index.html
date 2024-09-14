@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Farewell Card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen"><p>Loading...</p></div>
+
+    <!-- Envelope Section -->
+    <div id="content">
+      <div id="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="body"></div>
+      </div>
+    </div>
+
+   <!-- Cards Section -->
+   <div id="cards-container" class="hidden">
+    <!-- Cards will be inserted dynamically here -->
+    <div class="card">
+      <p>This is your first farewell message.</p>
+    </div>
+    <button class="prev-arrow" onclick="showPrevCard()">←</button>
+    <button class="next-arrow" onclick="showNextCard()">→</button>
+  </div>
+
+    <!-- Flower Bloom and End Message -->
+    <div id="flower-bloom" class="hidden"></div>
+    <div id="end-message" class="hidden">
+      <p>Do you want to read it again?</p>
+      <button id="yes-button" onclick="restartCards()">Yes</button>
+      <button id="no-button" onclick="endExperience()">No</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
