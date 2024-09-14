@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-image: linear-gradient(#f5dbf5,#B7D7C9 );/*#04616E*/
   overflow: hidden;
   position: relative;
 }
@@ -19,7 +19,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #f5e3e6;
+  background-image: linear-gradient(white,#5e6da0);
   color: #333;
   font-size: 24px;
   position: fixed;
@@ -28,6 +28,15 @@ body {
   z-index: 10;
   opacity: 1;
   transition: opacity 0.5s ease-out;
+}
+
+#loading-screen p{
+  font-family: 'freight-big-pro';
+  font-size: 100px;
+  font-weight: normal;
+  letter-spacing: -6.5px;
+  overflow-wrap: break-world;
+  color: #2b365b;
 }
 
 /* Hide when not loading */
@@ -42,8 +51,8 @@ body {
 }
 
 #envelope {
-  width: 300px;
-  height: 200px;
+  width: 500px;
+  height: 400px;
   background-color: #f5e3e6;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -53,6 +62,17 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 2;
+}
+
+#envelope p{
+  font-family: 'freight-big-pro';
+  font-size: 20px;
+  color:#ff69b4;
+  font-size: 30px;
+   font-weight: normal;
+   letter-spacing: -2.5px;
+   overflow-wrap: break-world;
 }
 
 /* Flap */
@@ -76,24 +96,33 @@ body {
 
 /* Cards Container */
 #cards-container {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   opacity: 0;
   transform: translateY(100%);
   transition: transform 1s ease, opacity 1s ease;
+  z-index: 1; */
+
+  position: absolute; /* Overlay the card on top of the envelope */
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the card over the envelope */
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  z-index: 3; /* Ensure cards show on top of the envelope */
 }
 
 #cards-container.show {
-  transform: translateY(0);
+  transform: translate(-50%,0);
   opacity: 1;
 }
 
 /* Cards */
 .card {
-  width: 300px;
-  height: 400px;
+  width: 500px;
+  height: 550px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
@@ -117,6 +146,44 @@ body {
   }
 }
 
+/* Inner container to hold front and back faces */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease; /* Smooth flip */
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* Front and back faces of the card */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back face */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+  background-color: white;
+  background: url(images/Card\ design\ for\ HER.png);
+}
+
+.card-back {
+  background-color: lightblue;
+  background: url(images/Card\ design\ for\ HER\ flip\ design.png);
+  transform: rotateY(180deg); /* Hide the back initially */
+}
+
+/* Flip animation when next button is clicked */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
 /* Flower Bloom */
 #flower-bloom {
   width: 100px;
@@ -134,4 +201,78 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+button:disabled { 
+   opacity: 0.5;  
+   cursor: not-allowed;
+  }
+
+  /* Flower Bloom Animation */
+#flower-bloom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-image: url('flower.png'); /* Replace with your flower image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  animation: bloom 2s ease-in-out forwards;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes bloom {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* End Message Styling */
+#end-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+#end-message.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Button Styles */
+#end-message button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#end-message button:hover {
+  background-color: #45a049;
+}
+
+/* Hide the message until the flower animation completes */
+.hidden {
+  display: none;
 }

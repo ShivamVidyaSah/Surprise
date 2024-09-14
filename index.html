@@ -12,21 +12,42 @@
 
     <!-- Envelope Section -->
     <div id="content">
-      <div id="envelope" onclick="openEnvelope()">
+      <div id="envelope" onclick="openEnvelope()"> 
+        <p id="envelop-msg">Tap Anywhere to Open!</p>
         <div class="flap"></div>
         <div class="body"></div>
       </div>
     </div>
 
    <!-- Cards Section -->
-   <div id="cards-container" class="hidden">
-    <!-- Cards will be inserted dynamically here -->
-    <div class="card">
+   <!-- <div id="cards-container" class="hidden"> -->
+    <!-- Will try to make a flip-able card -->
+    <!-- <div class="card">
       <p>This is your first farewell message.</p>
     </div>
     <button class="prev-arrow" onclick="showPrevCard()">←</button>
     <button class="next-arrow" onclick="showNextCard()">→</button>
+  </div> -->
+
+  <div id="cards-container" class="hidden">
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p></p>
+        </div>
+        <div class="card-back">
+          <p></p>
+        </div>
+      </div>
+      
+    </div>
+   
+    <button class="prev-arrow" id="prev-button" onclick="showPrevCard()" disabled>←</button>
+    <button class="next-arrow" id="next-button" onclick="showNextCard()">→</button>
+    <button class="flr-bloom" id="flr-bloom" onclick="showFlowerBloom()">Next Section</button>
   </div>
+  
+ 
 
     <!-- Flower Bloom and End Message -->
     <div id="flower-bloom" class="hidden"></div>
