@@ -40,9 +40,9 @@ function endExperience() {
   document.getElementById('end-message').style.display = 'block'; // Show ending message
 }
 
-// Functions for card navigation (you'll need to implement these)
+// Function for card navigation
 let isFlipped = false;
-document.getElementById('flr-bloom').disabled = false;
+document.getElementById('flr-bloom').disabled = true;
 
 function showPrevCard() {
   if (isFlipped) {
@@ -72,35 +72,4 @@ function showNextCard() {
   }
 }
 
-
-
-// Trigger flower bloom animation and show the end message
-function showFlowerBloom() {
-  const flowerBloom = document.getElementById('flower-bloom');
-  const endMessage = document.getElementById('end-message');
-  const cardsContainer = document.getElementById('cards-container');
-  const envelope = document.getElementById('envelope');
-
-  // Hide envelope and cards with fade-out effect
-  envelope.style.transition = 'opacity 1s ease';
-  cardsContainer.style.transition = 'opacity 1s ease';
-
-  envelope.style.opacity = '0';
-  cardsContainer.style.opacity = '0';
-
-  // After fade-out, hide the elements
-  setTimeout(() => {
-    envelope.style.display = 'none';
-    cardsContainer.style.display = 'none';
-  }, 1000); // Matches the fade-out duration
-
-  // Start flower bloom animation
-  flowerBloom.classList.remove('hidden');
-  flowerBloom.style.animation = 'bloom 2s ease-in-out forwards';
-
-  // Show the end message after the flower bloom completes
-  setTimeout(() => {
-    endMessage.classList.add('show');
-  }, 2000); // Adjust delay to match the bloom animation duration
-}
 

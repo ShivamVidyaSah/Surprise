@@ -146,6 +146,30 @@ body {
   }
 }
 
+.prev-arrow, .next-arrow{
+  width: 30px;
+  height: 30px;
+  background-color: #4c7e69;
+  border: 1px solid;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+
+}
+/*Code for prev and next button when disabled*/
+
+.flr-bloom{
+  width: 100px;
+  height: 30px;
+  background-color: #4c7e69;
+  border: 1px solid;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+/*Code for when Next Section button is disabled*/
+
 /* Inner container to hold front and back faces */
 .card-inner {
   width: 100%;
@@ -184,95 +208,3 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Flower Bloom */
-#flower-bloom {
-  width: 100px;
-  height: 100px;
-  background-color: #ff69b4;
-  border-radius: 50%;
-  animation: bloom 1s ease-out forwards;
-  display: none;
-}
-
-@keyframes bloom {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-button:disabled { 
-   opacity: 0.5;  
-   cursor: not-allowed;
-  }
-
-  /* Flower Bloom Animation */
-#flower-bloom {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  background-image: url('flower.png'); /* Replace with your flower image */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  animation: bloom 2s ease-in-out forwards;
-  opacity: 0;
-  visibility: hidden;
-}
-
-@keyframes bloom {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-/* End Message Styling */
-#end-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1s ease-in-out;
-}
-
-#end-message.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Button Styles */
-#end-message button {
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#end-message button:hover {
-  background-color: #45a049;
-}
-
-/* Hide the message until the flower animation completes */
-.hidden {
-  display: none;
-}
