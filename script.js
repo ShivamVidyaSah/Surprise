@@ -97,24 +97,36 @@ function restartCards() {
   }, 500);
 }
 
-document.getElementById('nxt-button').addEventListener('click',function() {
-   
-  const display = document.getElementById('final-display');
-  const msg = document.getElementById('final-message');
+// Transition from 'end-message' to 'final-display'
+document.getElementById('nxt-button').addEventListener('click', function() {
+  const endMessage = document.getElementById('end-message');
+  const finalDisplay = document.getElementById('final-display');
+
+  // Fade out 'end-message'
+  endMessage.classList.remove('show');
+  setTimeout(function() {
+    endMessage.classList.add('hidden'); // Hide it after the transition
+    // After hiding 'end-message', fade in 'final-display'
+    finalDisplay.classList.remove('hidden');
+    setTimeout(function() {
+      finalDisplay.classList.add('show');
+    }, 10); // Small delay to trigger transition
+  }, 500); // Wait for 500ms to match the CSS transition
+});
+
+// Transition from 'final-display' back to 'end-message'
+document.getElementById('prev-display').addEventListener('click', function() {
+  const finalDisplay = document.getElementById('final-display');
   const endMessage = document.getElementById('end-message');
 
+  // Fade out 'final-display'
+  finalDisplay.classList.remove('show');
   setTimeout(function() {
-    endMessage.classList.remove('show');
-    endMessage.classList.add('hidden');
-  
-  }, 500);
- 
-
-  setTimeout(function() {
-  display.classList.remove('hidden');
-  display.classList.add('show');
-  }, 500);
-  
-})
-
-
+    finalDisplay.classList.add('hidden'); // Hide it after the transition
+    // After hiding 'final-display', fade in 'end-message'
+    endMessage.classList.remove('hidden');
+    setTimeout(function() {
+      endMessage.classList.add('show');
+    }, 10); // Small delay to trigger transition
+  }, 500); // Wait for 500ms to match the CSS transition
+});

@@ -233,11 +233,19 @@ body {
 
 /* Styling for the message */
 #end-message {
+  
   text-align: center;
   margin-top: 50px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+#end-message p{
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  font-style: normal;
 }
 
 /* Show the message with full opacity */
@@ -249,7 +257,8 @@ body {
 #end-message #yes-button, #nxt-button,#prev-display{
   width: 30px;
   height: 30px;
-  justify-content: center;
+  /* justify-content: center; */
+  margin-top: 50px;
   text-align: center;
   border-radius: 25px;
   background-color: #4c7e69;
@@ -258,14 +267,65 @@ body {
   cursor: pointer;
 }
 
-#final-display{
-
+/* Only for the end-message and final-display transitions */
+#final-display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index: 10; Ensure they stay on top */
+  background-image: linear-gradient(#f5dbf5,#B7D7C9); /* Semi-transparent background */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
-#final-display #final-message{
+#final-display #final-message {
   font-family: "Satisfy", cursive;
   font-weight: 400;
-  font-size: 90px;
-  font-style:normal;
-  color:#b25961;
+  font-size: 70px;
+  font-style: normal;
+  color: #b25961;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Prevent interaction */
+  transition: opacity 1s ease-in-out, visibility 0s linear ; /* Visibility changes after opacity */
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Enable interaction */
+  transition: opacity 1s ease-in-out, visibility 0s linear ; /* Visibility changes immediately */
+}
+
+#prev-display:hover {
+  background-color: #b25961;
+  position: relative;
+  animation: move 0.5s ease infinite;
+}
+
+/* Shaking effect for the button */
+@keyframes move {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg); /* Move left at an angle */
+  }
+  50% {
+    transform: rotate(0deg); /* Back to original position */
+  }
+  75% {
+    transform: rotate(5deg); /* Move right at an angle */
+  }
+  100% {
+    transform: rotate(0deg); /* Back to original position */
+  }
 }
