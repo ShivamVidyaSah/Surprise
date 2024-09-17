@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interactive Farewell Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -41,17 +44,25 @@
       </div>
       
     </div>
-   
+   <!-- Three buttons for Previous, Next anf Next Section. -->
     <button class="prev-arrow" id="prev-button" onclick="showPrevCard()" disabled>←</button>
     <button class="next-arrow" id="next-button" onclick="showNextCard()">→</button>
-    <button class="flr-bloom" id="flr-bloom" onclick="showFlowerBloom()" disabled>Next Section</button>
+    <button class="flr-bloom" id="flr-bloom" " disabled>Next Section</button>
   </div>
   
  
+<!-- Message that will appear after envelope and cards disappear -->
+<div id="end-message" class="hidden">
+  <p>Do you want to read it again?</p>
+  <button id="yes-button" onclick="restartCards()">←</button>
+  <button id="nxt-button" >→</button>
+</div>
 
-   
-
-    
+<!-- The final Message with a button to come to the previous section -->
+<div id="final-display" class="hidden">
+<h2 id="final-message">Thank You for Everything!</h2>
+<button id="prev-display">←</button>
+</div>
 
     <script src="script.js"></script>
   </body>

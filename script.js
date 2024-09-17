@@ -21,25 +21,6 @@ function openEnvelope() {
   }, 1000); 
 }
 
-// Function to restart the card interaction
-function restartCards() {
-  document.getElementById('cards-container').classList.remove('show');
-  document.getElementById('flower-bloom').classList.add('hidden');
-  setTimeout(function() {
-    document.getElementById('flower-bloom').style.display = 'none'; // Hide flower bloom
-    document.getElementById('envelope').classList.remove('disappear'); // Reset envelope state
-    document.getElementById('envelope').classList.remove('open-animation'); // Reset envelope animation
-    document.getElementById('content').style.opacity = '1'; // Show content
-    openEnvelope(); // Reopen envelope
-  }, 500);
-}
-
-// Function to end the experience
-function endExperience() {
-  document.getElementById('flower-bloom').style.display = 'block';
-  document.getElementById('end-message').style.display = 'block'; // Show ending message
-}
-
 // Function for card navigation
 let isFlipped = false;
 document.getElementById('flr-bloom').disabled = true;
@@ -71,5 +52,69 @@ function showNextCard() {
     isFlipped = true;
   }
 }
+
+document.getElementById('flr-bloom').addEventListener('click', function() {
+  // Hide the envelope and cards with a fade-out effect
+  const envelope = document.getElementById('envelope');
+  const cardsContainer = document.getElementById('cards-container');
+  const endMessage = document.getElementById('end-message');
+
+  // Fade out the envelope and cards
+  envelope.style.transition = 'opacity 1s ease, transform 1s ease';
+  cardsContainer.style.transition = 'opacity 1s ease, transform 1s ease';
+
+  envelope.style.opacity = '0';
+  cardsContainer.style.opacity = '0';
+
+  setTimeout(function() {
+    // After fade-out, hide them completely
+    envelope.style.display = 'none';
+    cardsContainer.style.display = 'none';
+
+    // Show the end message
+    endMessage.classList.remove('hidden');
+    endMessage.classList.add('show');
+  }, 1000); // Matches the fade-out duration
+});
+
+// Restart function for "Yes" button (resets envelope and cards visibility)
+function restartCards() {
+  const envelope = document.getElementById('envelope');
+  const cardsContainer = document.getElementById('cards-container');
+  const endMessage = document.getElementById('end-message');
+
+  // Hide the end message
+  endMessage.classList.remove('show');
+  endMessage.classList.add('hidden');
+
+  // Show the envelope and cards again after a short delay
+  setTimeout(function() {
+    envelope.style.display = 'block';
+    cardsContainer.style.display = 'block';
+
+    envelope.style.opacity = '1';
+    cardsContainer.style.opacity = '1';
+  }, 500);
+}
+
+document.getElementById('nxt-button').addEventListener('click',function() {
+   
+  const display = document.getElementById('final-display');
+  const msg = document.getElementById('final-message');
+  const endMessage = document.getElementById('end-message');
+
+  setTimeout(function() {
+    endMessage.classList.remove('show');
+    endMessage.classList.add('hidden');
+  
+  }, 500);
+ 
+
+  setTimeout(function() {
+  display.classList.remove('hidden');
+  display.classList.add('show');
+  }, 500);
+  
+})
 
 

@@ -157,7 +157,15 @@ body {
 
 }
 /*Code for prev and next button when disabled*/
+.prev-arrow:disabled{
+  cursor: not-allowed;
+  background-color: #b4d2c6;
+}
 
+.next-arrow:disabled{
+  cursor: not-allowed;
+  background-color: #b4d2c6;
+}
 .flr-bloom{
   width: 100px;
   height: 30px;
@@ -169,7 +177,10 @@ body {
 }
 
 /*Code for when Next Section button is disabled*/
-
+.flr-bloom:disabled{
+  cursor: not-allowed;
+  background-color: #b4d2c6;
+}
 /* Inner container to hold front and back faces */
 .card-inner {
   width: 100%;
@@ -208,3 +219,53 @@ body {
   transform: rotateY(180deg);
 }
 
+/* Styling for envelope and cards */
+#envelope, #cards-container {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Hidden state for the disappearing animation */
+.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  display: none;
+}
+
+/* Styling for the message */
+#end-message {
+  text-align: center;
+  margin-top: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Show the message with full opacity */
+#end-message.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#end-message #yes-button, #nxt-button,#prev-display{
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  text-align: center;
+  border-radius: 25px;
+  background-color: #4c7e69;
+  border: 1px solid;
+  color: white;
+  cursor: pointer;
+}
+
+#final-display{
+
+}
+
+#final-display #final-message{
+  font-family: "Satisfy", cursive;
+  font-weight: 400;
+  font-size: 90px;
+  font-style:normal;
+  color:#b25961;
+}
