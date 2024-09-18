@@ -113,8 +113,6 @@ document.getElementById('nxt-button').addEventListener('click', function() {
     }, 10); // Small delay to trigger transition
   }, 500); // Wait for 500ms to match the CSS transition
 });
-
-// Transition from 'final-display' back to 'end-message'
 document.getElementById('prev-display').addEventListener('click', function() {
   const finalDisplay = document.getElementById('final-display');
   const endMessage = document.getElementById('end-message');
@@ -122,11 +120,12 @@ document.getElementById('prev-display').addEventListener('click', function() {
   // Fade out 'final-display'
   finalDisplay.classList.remove('show');
   setTimeout(function() {
-    finalDisplay.classList.add('hidden'); // Hide it after the transition
+    finalDisplay.classList.add('hidden'); // Hide 'final-display'
+    
     // After hiding 'final-display', fade in 'end-message'
     endMessage.classList.remove('hidden');
     setTimeout(function() {
       endMessage.classList.add('show');
-    }, 10); // Small delay to trigger transition
-  }, 500); // Wait for 500ms to match the CSS transition
+    }, 50); // Small delay to allow transition to trigger
+  }, 1000);  // Wait for 500ms to match the CSS transition
 });

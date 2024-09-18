@@ -32,7 +32,7 @@ body {
 
 #loading-screen p{
   font-family: 'freight-big-pro';
-  font-size: 100px;
+  font-size: 4rem;
   font-weight: normal;
   letter-spacing: -6.5px;
   overflow-wrap: break-world;
@@ -51,8 +51,8 @@ body {
 }
 
 #envelope {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
   background-color: #f5e3e6;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -121,8 +121,8 @@ body {
 
 /* Cards */
 .card {
-  width: 500px;
-  height: 550px;
+  width: 400px;
+  height: 450px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
@@ -206,12 +206,14 @@ body {
 .card-front {
   background-color: white;
   background: url(images/Card\ design\ for\ HER.png);
+  background-size: cover;
 }
 
 .card-back {
   background-color: lightblue;
   background: url(images/Card\ design\ for\ HER\ flip\ design.png);
   transform: rotateY(180deg); /* Hide the back initially */
+  background-size: cover;
 }
 
 /* Flip animation when next button is clicked */
@@ -238,7 +240,7 @@ body {
   margin-top: 50px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  transition: opacity 1s ease-in-out, visibility 0s 1s ;
 }
 
 #end-message p{
@@ -280,7 +282,7 @@ body {
   left: 0;
   /* z-index: 10; Ensure they stay on top */
   background-image: linear-gradient(#f5dbf5,#B7D7C9); /* Semi-transparent background */
-  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  transition: opacity 1s ease-in-out, visibility 0s 1s;
 }
 
 #final-display #final-message {
@@ -309,23 +311,4 @@ body {
   background-color: #b25961;
   position: relative;
   animation: move 0.5s ease infinite;
-}
-
-/* Shaking effect for the button */
-@keyframes move {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-5deg); /* Move left at an angle */
-  }
-  50% {
-    transform: rotate(0deg); /* Back to original position */
-  }
-  75% {
-    transform: rotate(5deg); /* Move right at an angle */
-  }
-  100% {
-    transform: rotate(0deg); /* Back to original position */
-  }
 }
