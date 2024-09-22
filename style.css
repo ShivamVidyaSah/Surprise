@@ -31,10 +31,11 @@ body {
 }
 
 #loading-screen p{
-  font-family: 'freight-big-pro';
-  font-size: 4rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
   font-weight: normal;
-  letter-spacing: -6.5px;
+  letter-spacing: 6.5px;
   overflow-wrap: break-world;
   color: #2b365b;
 }
@@ -63,16 +64,25 @@ body {
   align-items: center;
   position: relative;
   z-index: 2;
+  flex-direction: column;
 }
 
-#envelope p{
-  font-family: 'freight-big-pro';
-  font-size: 20px;
-  color:#ff69b4;
+#envelope #envelop-msg{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
   font-size: 30px;
-   font-weight: normal;
-   letter-spacing: -2.5px;
+  font-style: italic;
    overflow-wrap: break-world;
+   
+   color:#ff69b4;
+}
+
+#envelope #caution{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: italic;
+  color: #b25961;
+  font-size: 15px;
 }
 
 /* Flap */
@@ -197,13 +207,13 @@ body {
 
 .card-front {
   background-color: white;
-  background: url(images/Card\ design\ for\ HER.png);
+  background: url(images/Card\ design\ for\ HER\ \(1\).png);
   background-size: cover;
 }
 
 .card-back {
   background-color: lightblue;
-  background: url(images/Card\ design\ for\ HER\ flip\ design.png);
+  background: url(images/Card\ design\ for\ HER\ flip\ design\(1\).png);
   transform: rotateY(180deg); /* Hide the back initially */
   background-size: cover;
 }
@@ -227,19 +237,28 @@ body {
 
 /* Styling for the message */
 #end-message {
-  
+  width: 90%;
+  height: auto;
   text-align: center;
-  margin-top: 50px;
+  justify-content: center;
+  margin-top: 0px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease-in-out, visibility 0s 1s ;
+  /* background-image: linear-gradient(rgb(253, 160, 207),rgb(147, 255, 185)); */
+  /* background-color: #D9B3E6; */
+  border-radius: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 #end-message p{
-  font-family: "Satisfy", cursive;
-  font-weight: 400;
-  font-size: 30px;
-  font-style: normal;
+  margin-top: 30px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: black;
+  font-size: 17px;
 }
 
 /* Show the message with full opacity */
@@ -248,7 +267,7 @@ body {
   visibility: visible;
 }
 
-#end-message #yes-button, #nxt-button,#prev-display{
+#yes-button, #nxt-button,#prev-display{
   width: 30px;
   height: 30px;
   /* justify-content: center; */
@@ -278,9 +297,10 @@ body {
 }
 
 #final-display #final-message {
-  font-family: "Satisfy", cursive;
-  font-weight: 400;
-  font-size: 70px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 60px;
   font-style: normal;
   color: #b25961;
 }
@@ -299,8 +319,87 @@ body {
   transition: opacity 1s ease-in-out, visibility 0s linear ; /* Visibility changes immediately */
 }
 
-#prev-display:hover {
-  background-color: #b25961;
-  position: relative;
-  animation: move 0.5s ease infinite;
+#final-display #sender-name{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #b25961;
+}
+
+
+/* Responsive Design */
+/* Base styles that work fine will not be affected */
+
+/* For tablets in both portrait and landscape mode (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Ensure card width is responsive for tablets */
+  #envelope, .card {
+    width: 80vw; /* Adjusted width for tablets */
+  }
+
+  #loading-screen p, #envelope p, #end-message p {
+    font-size: 1.8rem; /* Font size appropriate for tablet screens */
+  }
+
+  #final-display #final-message {
+    font-size: 6vw; /* Scale text with viewport width */
+  }
+
+  /* Make buttons larger for better touch interaction */
+  #yes-button, #nxt-button, #prev-display {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* For mobile phones (max-width: 767px) */
+@media (max-width: 767px) {
+  /* Adjust envelope and card size */
+  #envelope{
+    width: 85vw; /* Slightly reduced width for small screens */
+  }
+
+  .card{
+    margin-top: 90px;
+
+  }
+  #end-message{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #loading-screen p, #envelope p, #end-message p {
+    font-size: 1.4rem; /* Small adjustments for better readability */
+  }
+
+  #final-display #final-message {
+    font-size: 7vw; /* Scale message based on mobile viewport width */
+  }
+
+  /* Increase button size for better usability */
+  #yes-button, #nxt-button, #prev-display {
+    width: 35px; /* Larger buttons for touch devices */
+    height: 35px;
+  }
+}
+
+/* For extra small mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  /* Reduce size of envelope and card further */
+  #envelope, .card {
+    width: 95vw; /* Almost full width for extra small screens */
+  }
+
+  .prev-arrow {
+    margin-left: 30px;
+  }
+
+  #loading-screen p, #envelope p, #end-message p {
+    font-size: 1.0rem; /* Smaller text size for small devices */
+  }
+
+  #final-display #final-message {
+    font-size: 8vw; /* Adjust font size for extra small devices */
+  }
+
 }

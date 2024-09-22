@@ -6,7 +6,7 @@
     <title>Interactive Farewell Card</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,7 +16,8 @@
     <!-- Envelope Section -->
     <div id="content">
       <div id="envelope" onclick="openEnvelope()"> 
-        <p id="envelop-msg">Tap Anywhere to Open!</p>
+        <p id="envelop-msg">Tap the Envelope to Open!</p>
+        <p id = "caution">Use the buttons to Navigate!</p>
         <div class="flap"></div>
         <div class="body"></div>
       </div>
@@ -53,7 +54,13 @@
  
 <!-- Message that will appear after envelope and cards disappear -->
 <div id="end-message" class="hidden">
-  <p>Do you want to read it again?</p>
+  <p>From day one, caring for you felt like caring for someone who is my own. The bond we share grew faster than I could have ever imagined. I've always been an introvert, so bonding with someone usually takes much longer, and trusting them can take even longer. But with you, it came naturally.
+    For the past month, I’ve been counting the days. If this place were any better, I would have asked you to stay. You have the potential to go places, and you will go places.
+    I’m going to miss you—a lot more than I thought I would. With that being said…<br>
+    With your permission, I’d like to meet you again sometime, and then again another time, and again...<br>
+    Your schedule will change, and I understand that. Life goes on, and so do we. The challenges you face today will only help you grow. I’ve shared most of my experiences with you, and if you remember them, that knowledge is yours to use. Use it well. You have a lovely person who is always supporting and concerned about you—listen to her.
+    I also hope to be a part of your journey, and if it’s meant to be, I will be. Until then, take care, and please sort out that sleep schedule of yours. And Oendrila… 
+    </p>
   <button id="yes-button" onclick="restartCards()">←</button>
   <button id="nxt-button" >→</button>
 </div>
@@ -61,6 +68,7 @@
 <!-- The final Message with a button to come to the previous section -->
 <div id="final-display" class="hidden">
 <p id="final-message">Thank You for Everything!</p>
+<span id="sender-name">- From Shivam</span>
 <button id="prev-display">←</button>
 </div>
 
