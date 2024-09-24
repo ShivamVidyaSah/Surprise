@@ -259,6 +259,7 @@ body {
   font-style: italic;
   color: black;
   font-size: 17px;
+  line-height: 30px;
 }
 
 /* Show the message with full opacity */
